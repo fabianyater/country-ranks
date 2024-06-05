@@ -1,0 +1,21 @@
+.tags {
+  padding: 10px;
+  width: max-content;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.tags span {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 600;
+  color: var(--light-gray);
+  font-size: var(--font-size-sm);
+}
+
+.tags[data-selected="true"] {
+  background-color: var(--dark-gray);
+}
+
+.tags:hover {
+    background-color: var(--dark-gray);
+}

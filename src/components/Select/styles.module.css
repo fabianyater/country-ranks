@@ -1,0 +1,10 @@
+.select {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--black);
+  color: var(--light-gray);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: var(--font-size-sm);
+  border: 2px solid var(--dark-gray);
+  border-radius: 10px;
+}

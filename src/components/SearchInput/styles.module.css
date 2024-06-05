@@ -1,0 +1,25 @@
+.search {
+    background-color: var(--dark-gray);
+    border-radius: 10px;
+    padding: 8px 12px;
+    width: 340px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--gray);
+    font-size: 16px;
+  }
+  
+  .search input::placeholder {
+    color: var(--gray);
+    font-size: var(--font-size-sm);
+    
+  }
+  

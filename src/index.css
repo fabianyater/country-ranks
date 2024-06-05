@@ -1,0 +1,37 @@
+:root {
+  --black: #1b1d1f;
+  --dark-gray: #282b30;
+  --medium-blue: #4e80ee;
+  --gray: #6c727f;
+  --light-gray: #d2d5da;
+  --font-size-lg: 2rem; /* 32px */
+  --font-size-md: 1rem; /* 16px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-xs: 0.75rem; /* 12px */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.be-vietnam-pro-semibold {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.be-vietnam-pro-bold {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--black);
+  /* background-image: url("assets/hero-image-wr.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover; */
+}
