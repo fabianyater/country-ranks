@@ -21,6 +21,9 @@ export const sortOptions = [
 
 export const filterOptions = [
   {
+    label: "Oceania",
+  },
+  {
     label: "Africa",
   },
   {

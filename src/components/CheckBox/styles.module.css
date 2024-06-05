@@ -1,0 +1,12 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.checkbox span {
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: var(--light-gray);
+  font-size: var(--font-size-sm);
+}

@@ -1,5 +1,6 @@
 import { filterOptions } from "../../utils";
 import AsideItem from "../AsideItem";
+import CheckBox from "../CheckBox";
 import Select from "../Select";
 import Tags from "../Tags";
 import styles from "./styles.module.css";
@@ -16,6 +17,10 @@ const Aside = () => {
             <Tags key={index} title={option.label} />
           ))}
         </div>
+      </AsideItem>
+      <AsideItem title="Status">
+        <CheckBox label="Member of the United Nations" id="onu"/>
+        {/* <CheckBox label="Independent" id="ind" /> */}
       </AsideItem>
     </aside>
   );
