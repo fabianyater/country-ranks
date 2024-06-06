@@ -7,6 +7,8 @@ export type FilterValues =
   | "Africa"
   | "Asia";
 
+export type StatusValues = "unMember" | "independent";
+
 export interface Country {
   name: {
     common: string;
@@ -19,5 +21,6 @@ export interface Country {
     png: string;
     svg: string;
   };
-  status: string;
+  unMember: boolean;
+  independent: boolean;
 }
