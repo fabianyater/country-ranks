@@ -1,4 +1,11 @@
 export type SortType = "Population" | "Area" | "Name";
+export type FilterValues =
+  | "Europe"
+  | "Americas"
+  | "Antartic"
+  | "Oceania"
+  | "Africa"
+  | "Asia";
 
 export interface Country {
   name: {

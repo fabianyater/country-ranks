@@ -1,14 +1,16 @@
 import React, { ReactNode, useEffect, useState } from "react";
 import { fetchAllCountries } from "../api/countryApi";
-import { Country, SortType } from "../types/CountryType";
+import { Country, FilterValues, SortType } from "../types/CountryType";
 
 interface CountryContextType {
   totalCountries: number;
   countries: Country[];
   sortType: SortType;
   isCountriesLoading: boolean;
+  selectedFilters: FilterValues[];
   setTotalCountries: React.Dispatch<React.SetStateAction<number>>;
   updateSortType: (value: SortType) => void;
+  handleSelectedFilter: (filterValue: FilterValues) => void;
 }
 
 export const CountryContext = React.createContext<
@@ -26,6 +28,15 @@ export const CountryContextProvider = ({
   const [countries, setCountries] = useState<Country[]>([]);
   const [isCountriesLoading, setCountriesLoading] = useState<boolean>(false);
   const [sortType, setSortType] = useState<SortType>("Population");
+  const [selectedFilters, setSelectedFilters] = useState<FilterValues[]>([]);
+
+  const handleSelectedFilter = (filterValue: FilterValues) => {
+    setSelectedFilters((prevSelectedFilter) =>
+      prevSelectedFilter.includes(filterValue)
+        ? prevSelectedFilter.filter((value) => value !== filterValue)
+        : [...prevSelectedFilter, filterValue]
+    );
+  };
 
   const updateSortType = (value: SortType) => {
     setSortType(value);
@@ -55,9 +66,11 @@ export const CountryContextProvider = ({
         totalCountries,
         countries,
         sortType,
+        selectedFilters,
         isCountriesLoading,
         setTotalCountries,
         updateSortType,
+        handleSelectedFilter,
       }}
     >
       {children}

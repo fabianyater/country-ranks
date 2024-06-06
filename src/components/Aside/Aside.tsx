@@ -1,3 +1,4 @@
+import { useCountryContext } from "../../hooks/useCountry";
 import { filterOptions } from "../../utils";
 import AsideItem from "../AsideItem";
 import CheckBox from "../CheckBox";
@@ -6,6 +7,7 @@ import Tags from "../Tags";
 import styles from "./styles.module.css";
 
 const Aside = () => {
+  const { handleSelectedFilter } = useCountryContext();
   return (
     <aside className={styles.aside}>
       <AsideItem title="Sort by">
@@ -14,7 +16,11 @@ const Aside = () => {
       <AsideItem title="Region">
         <div className={styles.tags}>
           {filterOptions.map((option, index) => (
-            <Tags key={index} title={option.label} />
+            <Tags
+              key={index}
+              title={option.label}
+              handleSelectedFilter={handleSelectedFilter}
+            />
           ))}
         </div>
       </AsideItem>
