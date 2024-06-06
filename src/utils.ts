@@ -4,6 +4,11 @@ export const addPluralText = (totalCountries: number): string => {
   }`;
 };
 
+export const capitalize = (word: string): string => {
+  if (!word) return "";
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+};
+
 export const sortOptions = [
   {
     label: "Population",
