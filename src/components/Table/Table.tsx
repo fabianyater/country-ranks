@@ -3,11 +3,23 @@ import { tableHeaders } from "../../utils";
 import styles from "./styles.module.css";
 
 const Table = () => {
-  const { countries, isCountriesLoading } = useCountryContext();
+  const { countries, sortType, isCountriesLoading } = useCountryContext();
 
-  /*   if (isCountriesLoading) {
-    return <h1>Loading...</h1>;
-  } */
+  const sortedBy = (sortType: string) => {
+    return countries.sort((a, b) => {
+      if (sortType === "Population") {
+        return b.population - a.population;
+      } else if (sortType === "Area") {
+        return b.area - a.area;
+      } else if (sortType === "Name") {
+        return a.name.common.localeCompare(b.name.common);
+      } else {
+        return 0;
+      }
+    });
+  };
+
+  const sortedCountries = sortedBy(sortType);
 
   return (
     <table className={styles.table}>
@@ -22,11 +34,19 @@ const Table = () => {
       </thead>
       <tbody>
         {isCountriesLoading ? (
-          <span className={styles.text}>Loading...</span>
+          <tr>
+            <td>
+              <span className={styles.text}>Loading...</span>
+            </td>
+          </tr>
         ) : countries.length === 0 ? (
-          <span className={styles.text}>No countries found</span>
+          <tr>
+            <td>
+              <span className={styles.text}>No countries found</span>
+            </td>
+          </tr>
         ) : (
-          countries.map((country, index) => (
+          sortedCountries.map((country, index) => (
             <tr key={index} className={styles.row_body}>
               <td className={styles.flag}>
                 <img
