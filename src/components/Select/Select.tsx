@@ -1,13 +1,14 @@
 import { ChangeEvent } from "react";
 import { useCountryContext } from "../../hooks/useCountry";
-import { sortOptions } from "../../utils";
+import { capitalize, sortOptions } from "../../utils";
 import styles from "./styles.module.css";
 
 const Select = () => {
   const { updateSortType } = useCountryContext();
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    updateSortType(e.target.value);
+    const capitalizedWord = capitalize(e.target.value);
+    updateSortType(capitalizedWord);
   };
 
   return (
