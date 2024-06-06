@@ -1,25 +1,11 @@
 import { useCountryContext } from "../../hooks/useCountry";
-import { tableHeaders } from "../../utils";
+import { sortCountries, tableHeaders } from "../../utils";
 import styles from "./styles.module.css";
 
 const Table = () => {
   const { countries, sortType, isCountriesLoading } = useCountryContext();
 
-  const sortedBy = (sortType: string) => {
-    return countries.sort((a, b) => {
-      if (sortType === "Population") {
-        return b.population - a.population;
-      } else if (sortType === "Area") {
-        return b.area - a.area;
-      } else if (sortType === "Name") {
-        return a.name.common.localeCompare(b.name.common);
-      } else {
-        return 0;
-      }
-    });
-  };
-
-  const sortedCountries = sortedBy(sortType);
+  const sortedCountries = sortCountries(countries, sortType);
 
   return (
     <table className={styles.table}>
