@@ -1,12 +1,32 @@
-.checkbox {
+.status {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
 
-.checkbox span {
+.status span {
   font-family: "Be Vietnam Pro", sans-serif;
   color: var(--light-gray);
   font-size: var(--font-size-sm);
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--gray);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox:hover {
+  border-color: var(--medium-blue);
+}
+
+.checkbox[data-checked="true"] {
+  border-color: var(--medium-blue);
+  background-color: var(--medium-blue);
 }

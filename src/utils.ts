@@ -39,3 +39,21 @@ export const filterOptions = [
     label: "Antartic",
   },
 ];
+
+export const tableHeaders = [
+  {
+    title: "Flag",
+  },
+  {
+    title: "Name",
+  },
+  {
+    title: "Population",
+  },
+  {
+    title: "Area (km²)",
+  },
+  {
+    title: "Region",
+  },
+];

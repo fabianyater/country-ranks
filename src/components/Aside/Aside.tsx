@@ -19,8 +19,8 @@ const Aside = () => {
         </div>
       </AsideItem>
       <AsideItem title="Status">
-        <CheckBox label="Member of the United Nations" id="onu"/>
-        {/* <CheckBox label="Independent" id="ind" /> */}
+        <CheckBox label="Member of the United Nations" id="onu" />
+        <CheckBox label="Independent" id="ind" />
       </AsideItem>
     </aside>
   );

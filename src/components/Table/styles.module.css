@@ -1,0 +1,36 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+.table_header tr {
+  border-bottom: 2px solid var(--dark-gray);
+}
+
+.col_header {
+  width: 20px;
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: var(--font-size-xs);
+  color: var(--gray);
+  font-weight: 600;
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.row_body td {
+  padding: 10px 0;
+}
+
+.flag {
+  border-radius: 5px;
+  width: 50px;
+  height: 40px;
+}
+
+.text {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: var(--font-size-md);
+  color: var(--light-gray);
+  font-weight: 600;
+}
