@@ -1,3 +1,5 @@
+export type SortType = "Population" | "Area" | "Name";
+
 export interface Country {
   name: {
     common: string;
