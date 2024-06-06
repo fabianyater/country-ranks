@@ -50,7 +50,10 @@ export const sortOptions = [
 
 export const filterOptions = [
   {
-    label: "Oceania",
+    label: "Americas",
+  },
+  {
+    label: "Antartic",
   },
   {
     label: "Africa",
@@ -62,10 +65,7 @@ export const filterOptions = [
     label: "Europe",
   },
   {
-    label: "Americas",
-  },
-  {
-    label: "Antartic",
+    label: "Oceania",
   },
 ];
 

@@ -1,11 +1,24 @@
+import { useEffect } from "react";
 import { useCountryContext } from "../../hooks/useCountry";
 import { sortCountries, tableHeaders } from "../../utils";
 import styles from "./styles.module.css";
 
 const Table = () => {
-  const { countries, sortType, isCountriesLoading } = useCountryContext();
+  const {
+    countries,
+    sortType,
+    filterByRegions,
+    selectedFilters,
+    setTotalCountries,
+    isCountriesLoading,
+  } = useCountryContext();
 
-  const sortedCountries = sortCountries(countries, sortType);
+  const filteredCountries = filterByRegions(selectedFilters);
+  const sortedAndFilteredCountries = sortCountries(filteredCountries, sortType);
+
+  useEffect(() => {
+    setTotalCountries(filteredCountries.length);
+  }, [filteredCountries, setTotalCountries]);
 
   return (
     <table className={styles.table}>
@@ -32,7 +45,7 @@ const Table = () => {
             </td>
           </tr>
         ) : (
-          sortedCountries.map((country, index) => (
+          sortedAndFilteredCountries.map((country, index) => (
             <tr key={index} className={styles.row_body}>
               <td className={styles.flag}>
                 <img

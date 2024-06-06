@@ -1,5 +1,5 @@
 .aside {
-  width: 350px;
+  width: 330px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,5 +15,5 @@
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }

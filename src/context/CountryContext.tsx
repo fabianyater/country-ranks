@@ -11,6 +11,7 @@ interface CountryContextType {
   setTotalCountries: React.Dispatch<React.SetStateAction<number>>;
   updateSortType: (value: SortType) => void;
   handleSelectedFilter: (filterValue: FilterValues) => void;
+  filterByRegions: (regions: FilterValues[]) => Country[];
 }
 
 export const CountryContext = React.createContext<
@@ -37,6 +38,13 @@ export const CountryContextProvider = ({
         : [...prevSelectedFilter, filterValue]
     );
   };
+
+  function filterByRegions(regions: FilterValues[]): Country[] {
+    if (!selectedFilters.length) return countries;
+    return countries.filter((country) =>
+      regions.includes(country.region as FilterValues)
+    );
+  }
 
   const updateSortType = (value: SortType) => {
     setSortType(value);
@@ -71,6 +79,7 @@ export const CountryContextProvider = ({
         setTotalCountries,
         updateSortType,
         handleSelectedFilter,
+        filterByRegions,
       }}
     >
       {children}
