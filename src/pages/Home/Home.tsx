@@ -1,13 +1,13 @@
-import styles from "./app.module.css";
-import logo from "./assets/Logo.svg";
-import bgImage from "./assets/hero-image-wr.jpg";
-import Aside from "./components/Aside";
-import SearchInput from "./components/SearchInput";
-import Table from "./components/Table";
-import { useCountryContext } from "./hooks/useCountry";
-import { addPluralText } from "./utils";
+import logo from "../../assets/Logo.svg";
+import bgImage from "../../assets/hero-image-wr.jpg";
+import Aside from "../../components/Aside";
+import SearchInput from "../../components/SearchInput";
+import Table from "../../components/Table";
+import { useCountryContext } from "../../hooks/useCountry";
+import { addPluralText } from "../../utils";
+import styles from "./styles.module.css";
 
-function App() {
+function Home() {
   const { totalCountries } = useCountryContext();
   return (
     <>
@@ -37,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
