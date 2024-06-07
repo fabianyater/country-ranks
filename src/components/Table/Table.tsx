@@ -1,9 +1,11 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCountryContext } from "../../hooks/useCountry";
 import { sortCountries, tableHeaders } from "../../utils";
 import styles from "./styles.module.css";
 
 const Table = () => {
+  const navigate = useNavigate();
   const {
     countries,
     sortType,
@@ -29,6 +31,10 @@ const Table = () => {
   useEffect(() => {
     setTotalCountries(filteredCountries.length);
   }, [filteredCountries, setTotalCountries]);
+
+  const handleRowClick = (name: string) => {
+    navigate(`/country/${name}`);
+  };
 
   return (
     <table className={styles.table}>
@@ -56,7 +62,11 @@ const Table = () => {
           </tr>
         ) : (
           sortedAndFilteredCountries.map((country, index) => (
-            <tr key={index} className={styles.row_body}>
+            <tr
+              key={index}
+              className={styles.row_body}
+              onClick={() => handleRowClick(country.name.common)}
+            >
               <td className={styles.flag}>
                 <img
                   src={country.flags.png}
