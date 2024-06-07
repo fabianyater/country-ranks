@@ -13,6 +13,8 @@ const Table = () => {
     selectedStatus,
     setTotalCountries,
     isCountriesLoading,
+    searchCountryName,
+    searchValue,
   } = useCountryContext();
 
   const filteredCountriesByStatus = filterByStatus(selectedStatus);
@@ -20,7 +22,9 @@ const Table = () => {
     filteredCountriesByStatus,
     selectedFilters
   );
-  const sortedAndFilteredCountries = sortCountries(filteredCountries, sortType);
+
+  const searchedCountries = searchCountryName(filteredCountries, searchValue);
+  const sortedAndFilteredCountries = sortCountries(searchedCountries, sortType);
 
   useEffect(() => {
     setTotalCountries(filteredCountries.length);

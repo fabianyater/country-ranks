@@ -12,14 +12,17 @@ interface CountryContextType {
   countries: Country[];
   sortType: SortType;
   isCountriesLoading: boolean;
+  searchValue: string;
   selectedFilters: FilterValues[];
   selectedStatus: StatusValues[];
   setTotalCountries: React.Dispatch<React.SetStateAction<number>>;
   updateSortType: (value: SortType) => void;
   handleSelectedFilter: (filterValue: FilterValues) => void;
   handleSelectedStatus: (statusValue: StatusValues) => void;
+  handleSearch: (value: string) => void;
   filterByRegions: (countries: Country[], regions: FilterValues[]) => Country[];
   filterByStatus: (status: StatusValues[]) => Country[];
+  searchCountryName: (countries: Country[], name: string) => Country[];
 }
 
 export const CountryContext = React.createContext<
@@ -39,6 +42,11 @@ export const CountryContextProvider = ({
   const [sortType, setSortType] = useState<SortType>("Population");
   const [selectedFilters, setSelectedFilters] = useState<FilterValues[]>([]);
   const [selectedStatus, setSelectedStatus] = useState<StatusValues[]>([]);
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  const handleSearch = (value: string) => {
+    setSearchValue(value);
+  };
 
   const handleSelectedFilter = (filterValue: FilterValues) => {
     setSelectedFilters((prevSelectedFilter) =>
@@ -77,6 +85,13 @@ export const CountryContextProvider = ({
     });
   }
 
+  function searchCountryName(countries: Country[], name: string) {
+    if (!searchValue) return countries;
+    return countries.filter((country) =>
+      country.name.common.toLowerCase().includes(name.toLowerCase())
+    );
+  }
+
   const updateSortType = (value: SortType) => {
     setSortType(value);
   };
@@ -107,13 +122,16 @@ export const CountryContextProvider = ({
         sortType,
         selectedFilters,
         selectedStatus,
+        searchValue,
         isCountriesLoading,
         setTotalCountries,
         updateSortType,
         handleSelectedFilter,
         handleSelectedStatus,
+        handleSearch,
         filterByRegions,
         filterByStatus,
+        searchCountryName,
       }}
     >
       {children}
