@@ -8,12 +8,18 @@ const Table = () => {
     countries,
     sortType,
     filterByRegions,
+    filterByStatus,
     selectedFilters,
+    selectedStatus,
     setTotalCountries,
     isCountriesLoading,
   } = useCountryContext();
 
-  const filteredCountries = filterByRegions(selectedFilters);
+  const filteredCountriesByStatus = filterByStatus(selectedStatus);
+  const filteredCountries = filterByRegions(
+    filteredCountriesByStatus,
+    selectedFilters
+  );
   const sortedAndFilteredCountries = sortCountries(filteredCountries, sortType);
 
   useEffect(() => {

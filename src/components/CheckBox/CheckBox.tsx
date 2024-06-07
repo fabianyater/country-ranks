@@ -1,15 +1,20 @@
 import { FC, InputHTMLAttributes, useState } from "react";
 import { CheckIcon } from "../../assets/icons/SvgIcon";
+import { useCountryContext } from "../../hooks/useCountry";
+import { StatusValues } from "../../types/CountryType";
 import styles from "./styles.module.css";
 interface CheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
+  value: string;
 }
 
-const CheckBox: FC<CheckBoxProps> = ({ label }) => {
+const CheckBox: FC<CheckBoxProps> = ({ label, value }) => {
+  const { handleSelectedStatus } = useCountryContext();
   const [isCheck, setIsCheck] = useState(false);
 
   const handleClick = () => {
     setIsCheck(!isCheck);
+    handleSelectedStatus(value as StatusValues);
   };
 
   return (
