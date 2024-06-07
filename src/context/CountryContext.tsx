@@ -18,7 +18,7 @@ interface CountryContextType {
   updateSortType: (value: SortType) => void;
   handleSelectedFilter: (filterValue: FilterValues) => void;
   handleSelectedStatus: (statusValue: StatusValues) => void;
-  filterByRegions: (regions: FilterValues[]) => Country[];
+  filterByRegions: (countries: Country[], regions: FilterValues[]) => Country[];
   filterByStatus: (status: StatusValues[]) => Country[];
 }
 
@@ -56,7 +56,10 @@ export const CountryContextProvider = ({
     );
   };
 
-  function filterByRegions(regions: FilterValues[]): Country[] {
+  function filterByRegions(
+    countries: Country[],
+    regions: FilterValues[]
+  ): Country[] {
     if (!selectedFilters.length) return countries;
     return countries.filter((country) =>
       regions.includes(country.region as FilterValues)
@@ -73,6 +76,7 @@ export const CountryContextProvider = ({
       });
     });
   }
+
   const updateSortType = (value: SortType) => {
     setSortType(value);
   };

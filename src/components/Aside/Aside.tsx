@@ -30,7 +30,7 @@ const Aside = () => {
           value="unMember"
           id="unMember"
         />
-        <CheckBox label="Independent" value="independent " id="independent" />
+        <CheckBox label="Independent" value="independent" id="independent" />
       </AsideItem>
     </aside>
   );
