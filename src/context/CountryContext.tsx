@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useCallback, useEffect, useState } from "react";
 import { fetchAllCountries } from "../api/countryApi";
 import {
   Country,
@@ -23,6 +23,7 @@ interface CountryContextType {
   filterByRegions: (countries: Country[], regions: FilterValues[]) => Country[];
   filterByStatus: (status: StatusValues[]) => Country[];
   searchCountryName: (countries: Country[], name: string) => Country[];
+  findCountryByCode: (code: string) => Country;
 }
 
 export const CountryContext = React.createContext<
@@ -110,6 +111,33 @@ export const CountryContextProvider = ({
     }
   };
 
+  const findCountryByCode = useCallback(
+    (code: string): Country => {
+      const country = countries.find(
+        (c) => c.cca2 === code || c.cca3 === code || c.cioc === code
+      );
+
+      if (!country) {
+        throw new Error(`Country with code ${code} not found`);
+      }
+
+      return country;
+    },
+    [countries]
+  );
+
+  /* const findCountryByCode = (code: string): Country => {
+    const country = countries.find(
+      (c) => c.cca2 === code || c.cca3 === code || c.cioc === code
+    );
+
+    if (!country) {
+      throw new Error(`Country with code ${code} not found`);
+    }
+
+    return country;
+  }; */
+
   useEffect(() => {
     getCountries();
   }, []);
@@ -132,6 +160,7 @@ export const CountryContextProvider = ({
         filterByRegions,
         filterByStatus,
         searchCountryName,
+        findCountryByCode,
       }}
     >
       {children}
