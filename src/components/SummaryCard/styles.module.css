@@ -1,0 +1,28 @@
+.container {
+  height: 50px;
+  width: max-content;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-gray);
+  border-radius: 10px;
+}
+
+.container:first-child {
+}
+
+.container span {
+  padding: 0 10px;
+}
+
+.border {
+  border-right: 1px solid var(--black);
+}
+
+.text {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: var(--font-size-md);
+  color: var(--light-gray);
+  font-weight: 500;
+}
