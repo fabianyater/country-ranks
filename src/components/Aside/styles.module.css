@@ -23,3 +23,12 @@
     width: 270px;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .aside {
+    width: 100%;
+    top: 60px;
+    background-color: var(--black);
+    padding: 20px 0;
+  }
+}
