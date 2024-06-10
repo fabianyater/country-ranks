@@ -47,7 +47,7 @@ export const CountryContextProvider = ({
     "Asia",
     "Europe",
   ]);
-  const [selectedStatus, setSelectedStatus] = useState<StatusValues[]>([]);
+  const [selectedStatus, setSelectedStatus] = useState<StatusValues[]>(["independent"]);
   const [searchValue, setSearchValue] = useState<string>("");
 
   const handleSearch = (value: string) => {
