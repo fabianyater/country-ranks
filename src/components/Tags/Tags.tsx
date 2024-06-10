@@ -1,19 +1,23 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import { useCountryContext } from "../../hooks/useCountry";
 import { FilterValues } from "../../types/CountryType";
 import styles from "./styles.module.css";
 
 type TagsProps = {
   title: string;
-  handleSelectedFilter: (filterValue: FilterValues) => void;
 };
 
-const Tags: FC<TagsProps> = ({ title, handleSelectedFilter }) => {
+const Tags: FC<TagsProps> = ({ title }) => {
+  const { selectedFilters, handleSelectedFilter } = useCountryContext();
   const [selected, setSelected] = useState<boolean>(false);
 
   const handleClick = () => {
-    setSelected(!selected);
     handleSelectedFilter(title as FilterValues);
   };
+
+  useEffect(() => {
+    setSelected(selectedFilters.includes(title as FilterValues));
+  }, [selectedFilters, title]);
 
   return (
     <div className={styles.tags} onClick={handleClick} data-selected={selected}>

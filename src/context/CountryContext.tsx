@@ -41,7 +41,12 @@ export const CountryContextProvider = ({
   const [countries, setCountries] = useState<Country[]>([]);
   const [isCountriesLoading, setCountriesLoading] = useState<boolean>(false);
   const [sortType, setSortType] = useState<SortType>("Population");
-  const [selectedFilters, setSelectedFilters] = useState<FilterValues[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<FilterValues[]>([
+    "Americas",
+    "Africa",
+    "Asia",
+    "Europe",
+  ]);
   const [selectedStatus, setSelectedStatus] = useState<StatusValues[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
 
