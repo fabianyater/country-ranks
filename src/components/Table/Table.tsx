@@ -43,7 +43,13 @@ const Table = () => {
       <thead className={styles.table_header}>
         <tr>
           {tableHeaders.map((option, index) => (
-            <th key={index} scope="col" className={styles.col_header}>
+            <th
+              key={index}
+              scope="col"
+              className={`${styles.col_header} ${
+                option.title === "Region" ? styles.hide : ""
+              }`}
+            >
               {option.title}
             </th>
           ))}
@@ -83,7 +89,9 @@ const Table = () => {
               <td className={styles.text}>
                 {country.area.toLocaleString("es-ES")}
               </td>
-              <td className={styles.text}>{country.region}</td>
+              <td className={`${styles.text} ${styles.hide}`}>
+                {country.region}
+              </td>
             </tr>
           ))
         )}
