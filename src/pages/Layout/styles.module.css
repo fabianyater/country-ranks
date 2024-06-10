@@ -24,3 +24,22 @@
   align-items: center;
   justify-content: center;
 }
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .header {
+    margin-top: 60px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .header {
+    margin: 0;
+  }
+}

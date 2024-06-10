@@ -34,3 +34,20 @@
 .table_wrapper {
   width: 100%;
 }
+
+@media screen and (max-width: 1024px) {
+  .main {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .content__body {
+    flex-direction: column;
+  }
+}
