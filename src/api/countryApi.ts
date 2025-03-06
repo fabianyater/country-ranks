@@ -6,6 +6,7 @@ export const fetchAllCountries = async (): Promise<Country[]> => {
   try {
     const response = await fetch(`${API_URL}/all`);
     if (!response.ok) {
+console.log("Error");
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
